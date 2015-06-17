@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+# Most scripts (not modules) should define a main() function and then
+# execute it using this 'if __name__' pattern at the bottom. This
+# construct exists so that you can also load this file as a module
+# or run test functions without executing the "main" code, which
+# would typically be used for regular usage on the command line.
+
+def main():
+    '''Main function goes here.'''
+    print "Hello World"
+
+if __name__ == '__main__':
+    main()

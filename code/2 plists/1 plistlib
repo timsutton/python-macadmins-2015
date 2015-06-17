@@ -1,0 +1,17 @@
+import plistlib
+
+# one function to load a plist into an object that looks and feels
+# like a Python object
+plist_path = '/System/Library/CoreServices/SystemVersion.plist'
+plist = plistlib.readPlist(plist_path)
+print plist
+
+plist.__class__
+
+if plist['ProductVersion'].startswith('10.10'):
+    siu_path = '/System/Library/CoreServices/Applications/System Image Utility.app'
+else:
+    siu_path = '/System/Library/CoreServices/System Image Utility.app'
+
+# a simple example - Python's os.uname()[2] can give us a Darwin kernel version,
+# but the above is more readable

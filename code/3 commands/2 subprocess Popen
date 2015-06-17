@@ -1,0 +1,40 @@
+
+import plistlib
+import subprocess
+import sys
+
+from pprint import pprint
+
+# what if we want to actually capture output? Popen(), the "Pro" version.
+
+
+command = ['/usr/sbin/dsconfigad', '-show', '-xml']
+# named arguments to functions!
+process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = process.communicate()
+
+# Try and parse the plist output only given the following conditions:
+# 1. if the out string (standard output) is nonzero, i.e. there was some output
+# 2. if the process returncode was zero
+#    - could also be written as "if out and not process.returncode"
+if out and process.returncode == 0:
+    plist = plistlib.readPlistFromString(out)
+
+#pprint(plist)
+
+if not plist.get('General Info') or \
+not plist.get('General Info').get('Computer Account'):
+    sys.exit("Unexpected plist structure!")
+
+# get the computer account:
+ad_computer = plist['General Info']['Computer Account']
+print "AD-bound computer object: %s" % ad_computer
+
+# some more commands that can be parsed in plist format:
+diskutil <command> -plist
+system_profiler -xml <datasource>
+dsconfigad <command> -xml
+dscl -plist <datasource> <command>
+hdiutil <command> -plist
+profiles <option> -o /path/to/plist
+installer -plist <options/commands>

@@ -1,0 +1,26 @@
+# help()
+#If the argument is a string, then the string is looked up as the name of a module, function, class, method, keyword, or documentation topic, and a help page is printed on the console. If the argument is any other kind of object, a help page on the object is generated.
+
+import time
+help(time)
+help('json')
+
+# What class is the object so that I could just look it up?
+myobj = {'one': 1, 'two': 2}
+myobj.__class__
+
+# What attributes belong to an object or module?
+import time
+dir(time)
+# see lots more of these special / magic / 'dunder' methods
+dir('just a string')
+
+# In a script, if you need to make sense of large amounts of data (especially
+# dictionaries) use the pprint (pretty-print) module:
+# pprint(complicated_dict)
+
+# use ipython! (sudo easy_install ipython)
+# - autocomplete for methods
+# - passes common shell commands through (cd, man, ls, etc.)
+# - nice formatting of objects like dictionaries
+# - history, re-using output from previous statements results

@@ -1,0 +1,11 @@
+# https://developer.apple.com/library/mac/documentation/CoreFoundation/Reference/CFPreferencesUtils
+from Foundation import CFPreferencesCopyAppValue
+from Foundation import CFPreferencesSetAppValue
+
+print CFPreferencesCopyAppValue('HomePage', 'com.apple.Safari')
+
+print CFPreferencesCopyAppValue('DomainsToNeverSetUp', 'com.apple.Safari')
+print CFPreferencesCopyAppValue('DomainsToNeverSetUp', 'com.apple.Safari').__class__
+
+CFPreferencesSetAppValue(
+    'HomePage', 'http://macdeployment.ca', 'com.apple.Safari')

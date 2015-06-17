@@ -1,0 +1,52 @@
+# Python can do "truth testing" on common object types, allowing
+# one to say "if foo" or "if not foo" and have code execute depending
+# on whether foo is "true" or "non-empty"
+
+returncode = 0
+if returncode:
+    print "Something bad happened"
+
+results_found = True
+if results_found:
+    print "Processing results"
+    do_stuff()
+
+# a simple example of a function that iterates recursively
+# through a path and builds a dictionary of bundle identifiers
+# via the presence of Info.plist files. The function can only
+# return a dictionary, so code depending on this output can
+# trust it will be a dict, and do something if it's not empty
+def build_app_inventory(path):
+    '''sample function that builds a dictionary of apps keyed
+    by bundle identifiers, starting from a top-level path.
+    returns an empty dictionary if none found.'''
+    import FoundationPlist
+    inv = {}
+    for root, dirs, files in os.walk(path):
+        for f in files:
+            fullpath = os.path.join(root, f)
+            if f == 'Info.plist':
+                info = FoundationPlist.readPlist(fullpath)
+                bundle = info['CFBundleIdentifier']
+                version = info.get('CFBundleShortVersionString') or \
+                            info.get('CFBundleVersion')
+                inv[bundle] = {}
+                inv[bundle]['version'] = version
+                inv[bundle]['path'] = fullpath
+
+    return inv
+
+# try a path with some bundles
+from pprint import pprint
+inventory = build_app_inventory('/Library/Internet Plug-Ins')
+pprint(inventory)
+if inventory:
+    print 'Found the following bundles: %s' % ', '.join(inventory.keys())
+
+# try the same with a path without bundles
+inventory = build_app_inventory('/var/lib')
+pprint(inventory)
+if inventory:
+    print 'Found the following bundles: %s' % ', '.join(inventory.keys())
+# no failure or exceptions, just the "if inventory" block never actually
+# enters because the inventory variable is an empty dictionary

@@ -1,0 +1,50 @@
+'stringA' == 'stringA'
+machine == 'stringA'
+
+mystring = 'Just a string.'
+print mystring
+
+path = '/Applications/MacKeeper.app'
+mystring = 'Found file: %s' % path
+print mystring
+
+bytes = 2000000
+mystring = 'Found file: %s, size: %s' % (path, bytes)
+print mystring
+
+# %s is only one representation format, many more possible
+
+# Or, .format()
+mystring = 'Found file: {0}, size: {1}'.format(path, bytes)
+mystring = 'Found file: {}, size: {}'.format(path, bytes)
+
+# other interesting operations:
+# split() - remember dealing with IFS?
+inventory = 'D257NDL1KG71,00112233aabb,bobs-imac,designdept,2015/06/25'
+print inventory.split(',')
+serial = inventory.split(',')[0]
+# from there we can work with this data intelligently: for example,
+# convert this date format into a "real" datetime object that Python
+# knows how to "compare" by newer/older
+
+# upper() / lower()
+print 'yyc'
+print 'yyc'.upper()
+print 'yyc'.lower()
+
+
+<!-- more -->
+
+# startswith() / endswith()
+models = ['iMac14,1', 'MacBook7,1', 'MacBookPro10,1', 'MacPro5,1']
+laptops = []
+for model in models:
+    if model.lower().startswith('macbook'):
+        laptops.append(model)
+
+laptops = [ model for model in models if model.lower().startswith('macbook') ]
+
+# join()
+iWork = ['Keynote', 'Numbers', 'Pages']
+iWork = ['Pages']
+print 'Discovered iWork apps: %s' % ', '.join(iWork)

@@ -1,0 +1,15 @@
+# getting dict values safely - a common bug is to assume a key will exist,
+# but if it doesn't, a KeyError exception will be raised
+print macs_by_model['MacBook8,1']
+
+# instead, use dict's get() method
+retinas = macs_by_model.get('MacBook8,1')
+if retinas:
+    print "Doing stuff relevant to Macbook retinas"
+
+# or:
+if macs_by_model.get('MacBook8,1'):
+    print "Doing stuff relevant to Macbook retinas"
+
+# macs_by_model.get('MacBook8,1') == macs_by_model.get('MacBook8,1', None)
+macs_by_model.get('MacBook8,1', "SomeOtherDefaultValue")

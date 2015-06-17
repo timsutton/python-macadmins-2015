@@ -1,0 +1,49 @@
+# basic types
+# strings (denoted with quotes)
+machine = 'iMac'
+machine = "Tim's iMac"
+machine = """iMac
+with a literal linebreak"""
+
+# integers and floats
+one = 1
+onefloat = 1.0
+
+# lists (square braces and commas)
+machines = ['iMac', 'MacPro', 'RackMac']
+first = machines[0]
+last = machines[2]
+nothere = machines[3]
+machines.append('Watch1,1')
+machines.remove('iMac')
+print machines
+# lists are not type-specific, each element can be anything
+
+# dictionaries (curly braces and commas)
+macs = {'iMac': 50, 'MacPro': 10, 'RackMac': 210}
+
+# dictionaries and lists should be familiar!
+# think <dict> and <array> types in plists
+
+# booleans: literal True False
+yyc = True
+yvr = False
+
+# NoneType: basically a "null"
+yul = None
+
+
+<!-- more -->
+
+# and more!
+# tuples (think immutable lists, denoted by parens and commas)
+computer_entry = ('D25P50PBF8J8', 'ac:87:a3:10:35:2b')
+# you'll see these frequently returned by functions:
+stdout, stderr = process.communicate()
+
+# even more:
+# sets
+# collections.OrderedDict
+# collections.namedtuple
+
+# how we're expressing the values in this example - quotes, brackets, etc. are known as "literals"

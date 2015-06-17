@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+# distutils.version might not be in every Python,
+# but it's on all Apple-shipped Pythons
+from distutils.version import LooseVersion, StrictVersion
+
+# easy version comparison
+print LooseVersion('1.2.3') < LooseVersion('1.2.4')
+
+# components compared by size, not like a decimal
+print LooseVersion('1.2.30') < LooseVersion('1.2.4')
+
+# StrictVersion: only accept one or two dots, values
+# may only be numbers with optionally an 'a' or 'b'
+# at the end denoting an alpha/beta, and these are
+# considered less than those without the alpha characters
+print StrictVersion('1.2.30') < StrictVersion('1.2.4')
+
+# compare how LooseVersion handles an alpha character..
+print LooseVersion('1.0b1') < LooseVersion('1.0')
+# to StrictVersion
+print StrictVersion('1.0b1') < StrictVersion('1.0')
+
+# LooseVersion can compare very long dot-separated versions
+# and just compares alpha characters in their order of
+# the character value
+print LooseVersion('1.2.3.4.5.6') > LooseVersion('1.2.3.4.5')
+
+# doesn't consider '5b' like '5 beta', it's just greater than
+# something that's only '5'
+print LooseVersion('1.2.3.4.5') > LooseVersion('1.2.3.4.5a')

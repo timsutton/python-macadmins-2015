@@ -1,0 +1,47 @@
+import plistlib
+
+# try and read a binary plist on Python less than 3.4:
+plist_path = '/Library/Preferences/com.apple.alf.plist'
+plist = plistlib.readPlist(plist_path)
+
+
+# Greg Neagle to the rescue - FoundationPlist module
+# https://github.com/munki/munki/blob/master/code/client/munkilib/FoundationPlist.py
+import FoundationPlist
+plist = FoundationPlist.readPlist(plist_path)
+
+# different library, but our plists continue to walk and talk
+# like native Python structures, usually dicts
+
+print plist['globalstate']
+print plist['applications'][0]['bundleid']
+print plist['applications'][0]['state']         # 0 is "allowed"
+
+print plist.__class__
+
+# using plists in Python lets us know the types of the data within,
+# which can be vague when using `defaults`
+# defaults read /Library/Preferences/com.apple.alf globalstate
+# defaults read /Library/Preferences/com.apple.commerce AutoUpdate
+# first one is an integer, second one is a boolean - they both
+# look the "same" via defaults
+
+# notice the .pyc file resulting from our import in an area we have write
+# access to
+
+# because FoundationPlist works the same way as plistlib, we
+# can even import it _as_ plistlib and replace the "namespace"
+# of plistlib with FoundationPlist's functions, and our
+# code doesn't have to care:
+
+# https://github.com/munki/munki/blob/ee1bcac831451f03e311795500625289ff689fce/code/client/makecatalogs#L39-L47
+try:
+    import FoundationPlist as plistlib
+    LOCAL_PREFS_SUPPORT = True
+except ImportError:
+    # maybe we're not on an OS X machine...
+    print >> sys.stderr, ("WARNING: FoundationPlist is not available, "
+                          "using plistlib instead.")
+    import plistlib
+    LOCAL_PREFS_SUPPORT = False
+

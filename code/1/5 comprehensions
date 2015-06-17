@@ -1,0 +1,33 @@
+machines = ['iMac', 'MacPro', 'RackMac']
+
+# 'mac_type' here within the loop is a temporary copy
+for model in machines:
+    print "Trying to change %s.." % model
+    model = model[0]
+print machines
+
+# don't try and change contents of the item you're looping over.
+# list comprehensions!
+
+# returns a new list but expressed in the form of a for loop:
+[ model[0] for model in machines ]
+# (might help to try and read this "in order" of the for loop)
+
+
+all_users = ['anthony', 'mikeymikey', 'andrina', 'tim']
+def user_is_admin(user):
+    if user.startswith('a'):
+        return True
+    return False
+
+special_users = []
+for user in all_users:
+    if user_is_admin(user):
+        special_users.append(user.capitalize())
+
+# Rewritten as a comprehension
+special_users = [user.capitalize() for user in all_users if user_is_admin(user)]
+
+for user in special_users:
+    print "%s is special!"
+

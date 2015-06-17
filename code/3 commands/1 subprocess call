@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+import subprocess
+import sys
+
+# naive example - build a list with the command and args, pass it to call()
+command = ['/usr/bin/pkgbuild', '--component', '/Applications/TextWrangler.app', 'tw.pkg']
+subprocess.call(command)
+
+# why pass the command and arguments as a list? we don't have to do this in the shell
+# ...because the shell has its own logic for separating arguments by whitespace
+#
+# And, this makes lists of arguments appealing because we don't need to care about
+# spaces and quoting!
+
+# passing the executable and args is different than typing them into a shell prompt!
+subprocess.call(['ls', '/Library/Application Support'])
+subprocess.call('ls /Library/Application\ Support', shell=True)
+
+# without the Bash shellshock patch for example:
+# >>> subprocess.call("env x='() { :;}; echo vulnerable' bash -c 'echo this is a test'", shell=True)
+# vulnerable
+# this is a test
+# 0
+
+# by default, the process will inherit any environment variables like PATH,
+# so paths don't _have_ to be absolute, but you probably shouldn't assume PATH
+# will always be set (NetInstall or the OS X installer, for example)
+
+# but how to handle error output?
+command = ['/usr/bin/pkgbuild', '--component', '/Applications/Wrong Path.app', 'tw.pkg']
+subprocess.call(command)
+
+# one simple option: capture the return code
+return_code = subprocess.call(command)
+if return_code:
+    print >> sys.stderr, "Command returned exit code %s." % return_code
+    # maybe bail now
+
+# "if return_code" is an example of checking for a "Truth Value"
+# - more on this in the '5 extra' directory
+# subprocess.check_call() is a variant on the above if you prefer handling
+# a failed command output as a Python exception.

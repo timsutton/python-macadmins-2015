@@ -1,0 +1,15 @@
+# lists are indexable by a numeric position starting from 0
+machines = ['iMac', 'MacPro', 'RackMac', 'Watch']
+machines[0]
+machines[1]
+
+# ranges also possible
+machines[0:2]              # include the lower range, _up to_ the upper range
+
+# many more ways to denote sub-ranges
+
+# dictionaries are indexed by the key name, and each key has a value
+macs_by_model = {'iMac15,1': 50, 'MacPro6,1': 10, 'RackMac1,1': 210}
+
+# value can be any kind of object, keys are usually strings
+print macs_by_model['MacPro6,1']
