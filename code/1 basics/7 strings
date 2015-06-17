@@ -19,7 +19,7 @@ mystring = 'Found file: {0}, size: {1}'.format(path, bytes)
 mystring = 'Found file: {}, size: {}'.format(path, bytes)
 
 # other interesting operations:
-# split() - remember dealing with IFS?
+# split() - remember dealing with IFS in shell?
 inventory = 'D257NDL1KG71,00112233aabb,bobs-imac,designdept,2015/06/25'
 print inventory.split(',')
 serial = inventory.split(',')[0]

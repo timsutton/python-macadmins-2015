@@ -1,9 +1,0 @@
-# functions with mandatory args
-
-# functions with named args
-print '⌚'.decode('utf-8')
-print '⌚'.decode('ascii')
-print '⌚'.decode('ascii', errors='ignore')
-
-# things returning multiple values (ie. as tuples)
-# for example a process.communicate()

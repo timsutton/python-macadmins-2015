@@ -23,7 +23,7 @@ if out and process.returncode == 0:
 #pprint(plist)
 
 if not plist.get('General Info') or \
-not plist.get('General Info').get('Computer Account'):
+    not plist.get('General Info').get('Computer Account'):
     sys.exit("Unexpected plist structure!")
 
 # get the computer account:

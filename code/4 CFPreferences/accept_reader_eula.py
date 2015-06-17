@@ -1,6 +1,9 @@
 #!/usr/bin/python
 #
 # Some preferences for Adobe Acrobat products are painful to manage.
+# The Reader/Acrobat browser plugins require you to first accept the
+# EULA to use them, which must be done from within the "full" application.
+#
 # Sample prefs for Reader that disable the "associate Reader with all
 # PDFs" (the 'AVAlert' key), and accepting the EULA ('EULAAccepted')
 #   <key>11</key>
@@ -25,9 +28,7 @@
 #
 #
 # This thread regarding administrators trying to pre-accept the
-# EULA for Adobe Reader is a great example. The Reader/Acrobat browser
-# plugins require you to first accept the EULA to use them, which must
-# be done from within the "full" application.
+# EULA for Adobe Reader is a great example. 
 #
 # https://forums.adobe.com/thread/1579676
 # 1. There is no way to simply set this system-wide via some special file, or for

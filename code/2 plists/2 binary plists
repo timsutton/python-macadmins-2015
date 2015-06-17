@@ -14,6 +14,8 @@ plist = FoundationPlist.readPlist(plist_path)
 # like native Python structures, usually dicts
 
 print plist['globalstate']
+# the applications array will have something if we've ever activated
+# the firewall and have allowed an application
 print plist['applications'][0]['bundleid']
 print plist['applications'][0]['state']         # 0 is "allowed"
 

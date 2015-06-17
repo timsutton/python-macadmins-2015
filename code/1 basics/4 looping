@@ -1,0 +1,43 @@
+machines = ['iMac', 'MacPro', 'RackMac']
+for mac_type in machines:
+    print mac_type
+
+# Python's for statement iterates over the items of any sequence
+# (a list or a string), in the order that they appear in the sequence.
+
+# Indentation matters!
+# This will crash with the exception:
+# IndentationError: unindent does not match any outer indentation level
+for mac_type in machines:
+	print "bad indents"
+     print mac_type
+
+# Tell your editor to tab-indent using 4 spaces when editing Python
+# Tabs and spaces may sometimes mix, but just don't.
+## TextWrangler: "Auto-expand tabs" pref, global or Python-language-only
+#               `defaults write com.barebones.textwrangler EditorAutoExpandTabs_Python -bool true`
+## TextMate: (default) "Soft tabs" in status bar area
+## Sublime Text: (default) "Indent using spaces" in status bar area
+
+special_users = ['Andrina', 'Anthony']
+for user in special_users:
+    print "%s is special!" % user
+
+# if the sequence is actually empty, that loop just never gets entered
+# Simplifies code that would loop over a collection. Don't bother checking
+# "if len(something) > 0", just write the loop, and it will run if there
+# is something to loop over.
+special_users = []
+for user in special_users:
+    print "%s is special!" % user
+
+# for looping over a dict:
+macs_by_model = {'iMac15,1': 50, 'MacPro6,1': 10, 'RackMac1,1': 210}
+for model in macs_by_model:
+    print "%s machines of type %s" % (macs_by_model[model], model)
+
+# or a different iterator that gives us both the key _and_ value:
+for model, count in macs_by_model.items():
+    print "%s machines of type %s" % (count, model)
+# read as "for key, value" or "for (key, value)"
+# more readable code if you'll be working with both the keys and values

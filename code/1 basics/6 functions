@@ -1,0 +1,19 @@
+# functions with mandatory args
+
+# functions with named args
+print '⌚'.decode('utf-8')
+print '⌚'.decode('ascii')
+print '⌚'.decode('ascii', errors='ignore')
+
+# things returning multiple values (ie. as tuples)
+# for example a process.communicate()
+
+# What's the difference between a method and a function?
+# They're functionally the same thing, but typically when
+# we refer to a function we're talking about something
+# defined within a program/script or a module (for example,
+# os.path.join() would be a function provided by the os
+# module), but a method is a function defined by a class,
+# which we invoke on that object itself. For example,
+# "My dog has fleas".split() is an example of calling the
+# split() method on a string.

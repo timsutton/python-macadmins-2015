@@ -12,5 +12,5 @@ rm -rf pkgsinfo
 cp -R pkgsinfo_orig ./pkgsinfo
 chown -R $SUDO_USER ./pkgsinfo
 
-defaults write /Library/Preferences/com.apple.commerce -bool false
+defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool false
 defaults write /Library/Preferences/com.apple.alf globalstate -integer 0
