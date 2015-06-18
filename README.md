@@ -2,7 +2,7 @@
 
 This is a collection of Python code snippets and scripts that will be used throughout my Python for Mac Admins sessions, at the [MacDeploy](http://macdeployment.ca) and [MacDevOpsYVR](http://www.macdevops.ca) western Canada conferences in June 2015.
 
-Most of the talk will use "interactive" Python. For this you're free to use the standard `python` executable you will find on every OS X system, but I'll be using [IPython](http://ipython.org) for a few added niceties.
+Most of the talk will use "interactive" Python. For this you're free to use the standard `python` executable you will find on every OS X system, but I'll be using [IPython](http://ipython.org) for a few added niceties. IPython is _not_ required for running any of these examples.
 
 It can be installed like any other Python package. If you're not familiar with tools like `pip` or `easy_install`, you can still easily install IPython globally (for all users) in a single step: `sudo easy_install ipython`.
 
