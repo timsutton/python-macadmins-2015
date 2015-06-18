@@ -13,5 +13,8 @@ if plist['ProductVersion'].startswith('10.10'):
 else:
     siu_path = '/System/Library/CoreServices/System Image Utility.app'
 
-# a simple example - Python's os.uname()[2] can give us a Darwin kernel version,
-# but the above is more readable
+# a simple example, but there are other ways to get the OS version without
+# having our own code reading a file off disk:
+# - in the os module, os.uname()[2] can give us a Darwin kernel version,
+#   but this is less readable because kernel '14.0.0' == OS version '10.10.0'
+# - the platform module, platform.mac_ver()[0] returns the OS X version like '10.0.0'

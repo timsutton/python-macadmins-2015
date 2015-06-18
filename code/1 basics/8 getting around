@@ -10,8 +10,9 @@ myobj = {'one': 1, 'two': 2}
 myobj.__class__
 
 # What attributes belong to an object or module?
-import time
-dir(time)
+import datetime
+now = datetime.datetime.now()
+dir(now)
 # see lots more of these special / magic / 'dunder' methods
 dir('just a string')
 

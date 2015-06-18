@@ -24,9 +24,11 @@ print plist.__class__
 # using plists in Python lets us know the types of the data within,
 # which can be vague when using `defaults`
 # defaults read /Library/Preferences/com.apple.alf globalstate
+# (returns "0", for an integer value)
 # defaults read /Library/Preferences/com.apple.commerce AutoUpdate
-# first one is an integer, second one is a boolean - they both
-# look the "same" via defaults
+# (returns "0", for a boolean false value)
+# no way to easily tell the type using defaults - slightly easier
+# using PlistBuddy, with cumbersome syntax
 
 # notice the .pyc file resulting from our import in an area we have write
 # access to
