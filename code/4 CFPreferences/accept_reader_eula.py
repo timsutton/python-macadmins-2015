@@ -6,25 +6,28 @@
 #
 # Sample prefs for Reader that disable the "associate Reader with all
 # PDFs" (the 'AVAlert' key), and accepting the EULA ('EULAAccepted')
-#   <key>11</key>
-#   <dict>
-#       <key>AVAlert</key>
-#       <dict>
-#           <key>Checkbox</key>
-#           <array>
-#               <integer>8</integer>
-#               <dict>
-#                   <key>OptionToOwn</key>
-#                   <array>
-#                       <integer>1</integer>
-#                       <integer>1</integer>
-#                   </array>
-#               </dict>
-#           </array>
-#       </dict>
-#       <key>EULAAccepted</key>
-#       <true/>
-#   </dict>
+# <plist version="1.0">
+# <dict>
+#     <key>11</key>
+#     <dict>
+#         <key>AVAlert</key>
+#         <dict>
+#             <key>Checkbox</key>
+#             <array>
+#                 <integer>8</integer>
+#                 <dict>
+#                     <key>OptionToOwn</key>
+#                     <array>
+#                         <integer>1</integer>
+#                         <integer>1</integer>
+#                     </array>
+#                 </dict>
+#             </array>
+#         </dict>
+#         <key>EULAAccepted</key>
+#         <true/>
+#     </dict>
+# </dict>
 #
 #
 # This thread regarding administrators trying to pre-accept the
