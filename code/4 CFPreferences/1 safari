@@ -8,4 +8,4 @@ print CFPreferencesCopyAppValue('DomainsToNeverSetUp', 'com.apple.Safari')
 print CFPreferencesCopyAppValue('DomainsToNeverSetUp', 'com.apple.Safari').__class__
 
 CFPreferencesSetAppValue(
-    'HomePage', 'http://macdeployment.ca', 'com.apple.Safari')
+    'HomePage', 'http://macdevops.ca', 'com.apple.Safari')
